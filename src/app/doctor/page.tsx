@@ -283,14 +283,14 @@ function ReportDetails({ report }: { report: MedicalReport }) {
             <span className="text-gray-600">
               {key.replace(/_/g, " ").toUpperCase()}:{" "}
             </span>
-            <span className="font-medium">{value}</span>
+            <span className="text-gray-900 font-medium">{value}</span>
           </div>
         ))}
       </div>
       {report.notes && (
         <div className="mt-3 text-sm">
           <span className="text-gray-600">Notes: </span>
-          <span className="text-gray-800">{report.notes}</span>
+          <span className="text-gray-900">{report.notes}</span>
         </div>
       )}
     </div>
