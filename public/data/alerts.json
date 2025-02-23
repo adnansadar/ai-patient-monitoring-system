@@ -1,0 +1,18 @@
+[
+  {
+    "patient_id": "P001",
+    "alert_id": "A001",
+    "alert_type": "critical",
+    "message": "Heart rate is fluctuating abnormally. Immediate attention required.",
+    "timestamp": "2025-02-21T14:30:00Z",
+    "doctor_notified": true
+  },
+  {
+    "patient_id": "P001",
+    "alert_id": "A002",
+    "alert_type": "warning",
+    "message": "Blood sugar level is high. Monitor closely.",
+    "timestamp": "2025-02-21T14:30:00Z",
+    "doctor_notified": true
+  }
+]

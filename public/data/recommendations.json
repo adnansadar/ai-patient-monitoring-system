@@ -1,0 +1,52 @@
+[
+  {
+    "id": "REC001",
+    "patientId": "P002",
+    "type": "medication_adjustment",
+    "message": "Consider increasing Metformin dosage based on consistently elevated glucose readings over the past week.",
+    "timestamp": "2024-03-15T10:00:00",
+    "priority": "high",
+    "category": "Diabetes Management",
+    "suggestedAction": "Review current medication plan and adjust as needed"
+  },
+  {
+    "id": "REC002",
+    "patientId": "P003",
+    "type": "lifestyle_modification",
+    "message": "Patient's cholesterol levels indicate need for dietary intervention. Recommend consultation with nutritionist.",
+    "timestamp": "2024-03-14T15:30:00",
+    "priority": "medium",
+    "category": "Cardiovascular Health",
+    "suggestedAction": "Schedule nutritionist consultation"
+  },
+  {
+    "id": "REC003",
+    "patientId": "P001",
+    "type": "follow_up",
+    "message": "Elevated WBC count requires follow-up blood work within 2 weeks to monitor for infection.",
+    "timestamp": "2024-03-13T09:15:00",
+    "priority": "medium",
+    "category": "Infection Monitoring",
+    "suggestedAction": "Schedule follow-up blood test"
+  },
+  {
+    "id": "REC004",
+    "patientId": "P002",
+    "type": "specialist_referral",
+    "message": "Recurring high glucose levels despite medication. Consider endocrinologist consultation.",
+    "timestamp": "2024-03-12T14:45:00",
+    "priority": "high",
+    "category": "Specialist Consultation",
+    "suggestedAction": "Refer to endocrinologist"
+  },
+  {
+    "id": "REC005",
+    "patientId": "P001",
+    "type": "preventive_care",
+    "message": "Due for annual cardiovascular assessment based on family history.",
+    "timestamp": "2024-03-11T11:30:00",
+    "priority": "low",
+    "category": "Preventive Care",
+    "suggestedAction": "Schedule cardiovascular assessment"
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "P001",
+    "name": "John",
+    "age": 56,
+    "gender": "Male",
+    "weight": 82,
+    "height": 175,
+    "blood_type": "O+",
+    "allergies": ["Penicillin"],
+    "chronic_conditions": ["Diabetes Type 2", "Hypertension"],
+    "medications": ["Metformin", "Lisinopril"],
+    "last_checkup": "2025-02-10",
+    "assigned_doctor": "D001",
+    "fitbit_data": {
+      "heart_rate": 88,
+      "blood_sugar": 145,
+      "blood_pressure": "140/90",
+      "steps_today": 5200,
+      "sleep_hours": 6.5
+    },
+    "alerts": [
+      {
+        "type": "blood_sugar",
+        "value": 145,
+        "status": "high",
+        "message": "Blood sugar above normal range. Consider adjusting insulin intake."
+      },
+      {
+        "type": "blood_pressure",
+        "value": "140/90",
+        "status": "warning",
+        "message": "Blood pressure is elevated. Monitor closely."
+      }
+    ]
+  }
+]

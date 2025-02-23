@@ -1,0 +1,12 @@
+[
+  {
+    "id": "D001",
+    "name": "Sarah Thompson",
+    "specialization": "Endocrinologist",
+    "patients": ["P001"],
+    "availability": [
+      { "day": "Monday", "time": "10:00 AM - 2:00 PM" },
+      { "day": "Thursday", "time": "12:00 PM - 4:00 PM" }
+    ]
+  }
+]

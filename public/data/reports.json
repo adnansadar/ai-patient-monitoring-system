@@ -1,0 +1,75 @@
+[
+  {
+    "id": "R001",
+    "patient_id": "P001",
+    "doctor_id": "D001",
+    "date": "2024-03-15T09:30:00",
+    "type": "blood_test",
+    "results": {
+      "hemoglobin": "14.2 g/dL",
+      "white_blood_cells": "7.5 K/µL",
+      "platelets": "250 K/µL",
+      "glucose": "95 mg/dL"
+    },
+    "status": "normal",
+    "notes": "All parameters within normal range"
+  },
+  {
+    "id": "R002",
+    "patient_id": "P002",
+    "doctor_id": "D001",
+    "date": "2024-03-14T14:15:00",
+    "type": "glucose",
+    "results": {
+      "fasting_glucose": "180 mg/dL",
+      "post_prandial": "220 mg/dL",
+      "hba1c": "7.8%"
+    },
+    "status": "critical",
+    "notes": "Blood glucose levels significantly elevated. Immediate attention required."
+  },
+  {
+    "id": "R003",
+    "patient_id": "P003",
+    "doctor_id": "D001",
+    "date": "2024-03-13T11:00:00",
+    "type": "cholesterol",
+    "results": {
+      "total_cholesterol": "210 mg/dL",
+      "hdl": "45 mg/dL",
+      "ldl": "140 mg/dL",
+      "triglycerides": "180 mg/dL"
+    },
+    "status": "abnormal",
+    "notes": "LDL and triglycerides slightly elevated. Dietary changes recommended."
+  },
+  {
+    "id": "R004",
+    "patient_id": "P001",
+    "doctor_id": "D001",
+    "date": "2024-03-12T10:30:00",
+    "type": "blood_test",
+    "results": {
+      "hemoglobin": "13.8 g/dL",
+      "white_blood_cells": "11.2 K/µL",
+      "platelets": "180 K/µL",
+      "glucose": "102 mg/dL"
+    },
+    "status": "abnormal",
+    "notes": "Elevated white blood cell count. Follow-up recommended."
+  },
+  {
+    "id": "R005",
+    "patient_id": "P002",
+    "doctor_id": "D001",
+    "date": "2024-03-11T15:45:00",
+    "type": "glucose",
+    "results": {
+      "fasting_glucose": "165 mg/dL",
+      "post_prandial": "195 mg/dL",
+      "hba1c": "7.5%"
+    },
+    "status": "abnormal",
+    "notes": "Blood glucose levels remain elevated. Medication adjustment may be needed."
+  }
+]
