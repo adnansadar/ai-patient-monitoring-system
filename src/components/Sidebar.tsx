@@ -1,6 +1,7 @@
 "use client";
 
 import { useAppContext } from "@/context/AppContext";
+import { UserRole } from "@/context/AppContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -18,9 +19,49 @@ import {
   FaFileAlt,
 } from "react-icons/fa";
 
+type NavigationItem = {
+  name: string;
+  href: string;
+  icon: React.ComponentType<{ className: string }>;
+  implemented?: boolean;
+};
+
+function NavItem({
+  href,
+  icon: Icon,
+  name,
+  isActive,
+  isImplemented = false,
+}: {
+  href: string;
+  icon: React.ComponentType<{ className: string }>;
+  name: string;
+  isActive: boolean;
+  isImplemented?: boolean;
+}) {
+  const baseClasses = `flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors ${
+    isActive ? "bg-gray-700 text-white" : ""
+  }`;
+
+  if (isImplemented) {
+    return (
+      <Link href={href} className={baseClasses}>
+        <Icon className="w-5 h-5 mr-3" />
+        <span>{name}</span>
+      </Link>
+    );
+  }
+
+  return (
+    <div className={`${baseClasses} cursor-not-allowed`} title="Coming Soon">
+      <Icon className="w-5 h-5 mr-3" />
+      <span>{name}</span>
+    </div>
+  );
+}
+
 function ActionMenu() {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
 
   const actionItems = [
     { name: "Add Medication", href: "/patient/add-medication", icon: FaPills },
@@ -49,16 +90,14 @@ function ActionMenu() {
           {actionItems.map((item) => {
             const Icon = item.icon;
             return (
-              <Link
+              <div
                 key={item.name}
-                href={item.href}
-                className={`flex items-center px-10 py-2 text-gray-300 hover:bg-gray-600 hover:text-white transition-colors ${
-                  pathname === item.href ? "bg-gray-600 text-white" : ""
-                }`}
+                className={`flex items-center px-10 py-2 text-gray-300 hover:bg-gray-600 hover:text-white transition-colors cursor-not-allowed`}
+                title="Coming Soon"
               >
                 <Icon className="w-4 h-4 mr-3" />
                 <span>{item.name}</span>
-              </Link>
+              </div>
             );
           })}
         </div>
@@ -94,9 +133,14 @@ export default function Sidebar() {
     return null;
   }
 
-  const navigationItems = {
+  const navigationItems: Record<UserRole, NavigationItem[]> = {
     patient: [
-      { name: "Dashboard", href: "/patient", icon: FaChartLine },
+      {
+        name: "Dashboard",
+        href: "/patient",
+        icon: FaChartLine,
+        implemented: true,
+      },
       {
         name: "Appointments",
         href: "/patient/appointments",
@@ -106,7 +150,12 @@ export default function Sidebar() {
       { name: "Profile", href: "/patient/profile", icon: FaUser },
     ],
     doctor: [
-      { name: "Dashboard", href: "/doctor", icon: FaChartLine },
+      {
+        name: "Dashboard",
+        href: "/doctor",
+        icon: FaChartLine,
+        implemented: true,
+      },
       { name: "Patients", href: "/doctor/patients", icon: FaUser },
       {
         name: "Appointments",
@@ -157,21 +206,16 @@ export default function Sidebar() {
           </Link>
         </div>
         <nav className="mt-6">
-          {currentNavItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors ${
-                  pathname === item.href ? "bg-gray-700 text-white" : ""
-                }`}
-              >
-                <Icon className="w-5 h-5 mr-3" />
-                <span>{item.name}</span>
-              </Link>
-            );
-          })}
+          {currentNavItems.map((item) => (
+            <NavItem
+              key={item.name}
+              href={item.href}
+              icon={item.icon}
+              name={item.name}
+              isActive={pathname === item.href}
+              isImplemented={item.implemented}
+            />
+          ))}
           {userRole === "patient" && <ActionMenu />}
         </nav>
       </div>
