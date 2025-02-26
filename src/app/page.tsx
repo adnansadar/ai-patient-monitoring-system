@@ -1,8 +1,19 @@
 "use client";
 
 import { FaUserMd, FaMobile, FaBrain } from "react-icons/fa";
+import { useState } from "react";
+import LoginModal from "@/components/LoginModal";
 
 export default function LandingPage() {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  const scrollToFeatures = () => {
+    const featuresSection = document.getElementById("features-section");
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -21,12 +32,18 @@ export default function LandingPage() {
                 </p>
                 <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
                   <div className="rounded-md shadow">
-                    <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 md:py-4 md:text-lg md:px-10 transform transition-all hover:scale-105">
+                    <button
+                      onClick={() => setIsLoginModalOpen(true)}
+                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 md:py-4 md:text-lg md:px-10 transform transition-all hover:scale-105"
+                    >
                       Get Started
                     </button>
                   </div>
                   <div className="mt-3 sm:mt-0 sm:ml-3">
-                    <button className="w-full flex items-center justify-center px-8 py-3 border border-primary-600 text-base font-medium rounded-md text-primary-600 bg-white hover:bg-primary-50 md:py-4 md:text-lg md:px-10 transform transition-all hover:scale-105">
+                    <button
+                      onClick={scrollToFeatures}
+                      className="w-full flex items-center justify-center px-8 py-3 border border-primary-600 text-base font-medium rounded-md text-primary-600 bg-white hover:bg-primary-50 md:py-4 md:text-lg md:px-10 transform transition-all hover:scale-105"
+                    >
                       Learn More
                     </button>
                   </div>
@@ -38,7 +55,7 @@ export default function LandingPage() {
       </div>
 
       {/* Features Section */}
-      <div className="py-12 sm:py-16 lg:py-20 bg-white">
+      <div id="features-section" className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
@@ -121,6 +138,12 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
+
+      {/* Login Modal */}
+      <LoginModal
+        isOpen={isLoginModalOpen}
+        onClose={() => setIsLoginModalOpen(false)}
+      />
     </div>
   );
 }
